@@ -1,0 +1,43 @@
+# Construit la documentation (MkDocs Material) et la publie sur GitHub Pages
+# à chaque envoi sur la branche principale.
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "mkdocs<2" "mkdocs-material==9.7.*"
+      - run: mkdocs build --strict
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  publier:
+    needs: construire
+    # GitHub Pages n'est disponible sur un dépôt privé qu'avec un compte payant :
+    # tant que le dépôt est privé, on construit (ce qui vérifie le site) sans publier.
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4

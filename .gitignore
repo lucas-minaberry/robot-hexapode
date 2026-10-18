@@ -1,0 +1,8 @@
+# Documents de travail, non publiés
+_sources/
+PLAN_REDACTION.md
+site/
+nomenclature.xlsx
+~$*.xlsx
+outils/
+ouvrir_site.bat

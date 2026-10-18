@@ -1,0 +1,13 @@
+/* Figures : image pleine largeur, légende discrète. */
+.md-typeset figure { margin: 1.2em auto; }
+.md-typeset figure img, .md-typeset figure video { border-radius: 4px; }
+.md-typeset figcaption { font-size: .78rem; color: var(--md-default-fg-color--light); max-width: 46rem; }
+/* Chiffres clés de l'accueil. */
+.md-typeset .chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: .8rem; margin: 1.2em 0; }
+.md-typeset .chiffres div { border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px; padding: .7rem .8rem; }
+.md-typeset .chiffres b { display: block; font-size: 1.35rem; line-height: 1.2; color: var(--md-primary-fg-color); }
+.md-typeset .chiffres span { font-size: .75rem; color: var(--md-default-fg-color--light); }
+/* Deux images côte à côte, empilées sur téléphone. */
+.md-typeset .duo { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+@media (max-width: 40rem) { .md-typeset .duo { grid-template-columns: 1fr; } }
+.md-typeset .duo figure { margin: 0; }

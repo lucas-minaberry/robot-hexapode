@@ -1,0 +1,88 @@
+site_name: Antares · robot hexapode
+site_description: "Antares, robot hexapode de secours à 18 degrés de liberté : conception, fabrication et mise au point"
+site_author: Lucas Minaberry
+site_url: https://lucas-minaberry.github.io/robot-hexapode/
+repo_url: https://github.com/lucas-minaberry/robot-hexapode
+repo_name: lucas-minaberry/robot-hexapode
+edit_uri: ""
+copyright: >
+  © 2026 Lucas Minaberry. Textes, photos, vidéos et schémas sous licence
+  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">CC BY-NC-ND 4.0</a>.
+  Code : tous droits réservés.
+
+docs_dir: docs
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: fr
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Mode sombre
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Mode clair
+  features:
+    - navigation.sections
+    - navigation.footer
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+  icon:
+    logo: material/robot-industrial
+
+nav:
+  - Accueil: index.md
+  - 1. Dimensionnement: 01-dimensionnement.md
+  - 2. Conception mécanique: 02-mecanique.md
+  - 3. Électronique: 03-electronique.md
+  - 4. Logiciel:
+      - Vue d'ensemble: 04-logiciel.md
+      - 4.1 Jumeau numérique: 04a-jumeau-numerique.md
+      - 4.2 Logiciel embarqué: 04b-embarque-ros2.md
+      - 4.3 Application de pilotage: 04c-application-pilotage.md
+  - 5. Essais et optimisation: 05-essais.md
+  - 6. Retours d'expérience: 06-retours-experience.md
+  - 7. Méthode de travail: 07-methode.md
+  - 8. Phase 2: 08-phase-2.md
+  - Annexes:
+      - annexes/index.md
+      - Nomenclature et budget: annexes/nomenclature.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+
+extra_javascript:
+  - assets/js/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - assets/css/site.css
+
+validation:
+  anchors: warn
+  unrecognized_links: warn
